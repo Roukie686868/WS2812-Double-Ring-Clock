@@ -54,7 +54,9 @@ void setup() {
   }
   
   timeClient.begin(); // Initialize a NTPClient to get time
-  timeClient.setTimeOffset(+3600+3600); // Set offset time in seconds to adjust for your timezone, for example:  (summertime +3600) GMT +1 = 3600   // GMT +8 = 28800   // GMT -1 = -3600   // GMT 0 = 0
+// Set offset time in seconds to adjust for your timezone, for example:  (summertime +3600)
+// GMT +1 = 3600 // GMT +8 = 28800 // GMT -1 = -3600 // GMT 0 = 0
+  timeClient.setTimeOffset(+3600+3600); 
 
   FastLED.addLeds<WS2812, LED_PIN, COLOR_ORDER>(leds, NUM_LEDS);
   FastLED.setBrightness(light);
@@ -70,7 +72,8 @@ void loop() {
   light = analogRead(LDR);
   lightm = map(light, 200, 1024, 10 ,250);
   FastLED.setBrightness(lightm);
-  Serial.print(currentHour); Serial.print(":"); Serial.print(currentMinute); Serial.print(":"); Serial.print(currentSecond); Serial.print("   Light: "); Serial.print(light); Serial.print(" "); Serial.println(lightm);
+  Serial.print(currentHour); Serial.print(":"); Serial.print(currentMinute); Serial.print(":");
+    Serial.print(currentSecond); Serial.print("   Light: "); Serial.print(light); Serial.print(" "); Serial.println(lightm);
 
   for (int pinNo = 0; pinNo <= NUM_LEDS - 1; pinNo++) {
     leds[pinNo] = CRGB( 0, 0, 0);
