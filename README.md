@@ -15,6 +15,7 @@ The end result should look something like this.
 
 The outer ring shows the minutes with a RED dot and the seconds with a GREEN dot, when the overlap, the color is purple for that one second. The inner ring shows the hours with a blue dot.
 The rectangular box in the middle holds a WEMOS D1 mini and a photo resistor to tune the led brightness depending the brightness in the room. (tune this your self with ```lightm = map(light, 200, 1024, 10 ,250);``` )
+By connecting to your Wifi the and pulling the internet time correct by ```timeClient.setTimeOffset(+3600+3600);``` for your time zone and daylight saving the time is shown.
 
 The 3D print is in 2 colors. The numbers are just a 3 layers higher than the rings so stop the print after the rings are done and continue with a different color for the last 3 layers to make the number stand out from the rest.
 ```
