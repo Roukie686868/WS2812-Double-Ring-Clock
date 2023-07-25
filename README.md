@@ -1,12 +1,22 @@
 # WS2812-Double-Ring-Clock
-Details how to build and program the WS2812 clock with 2 rings
-with the use of a 3d pringer, ws2812 leds and an esp8266 (like Wemos D1)
+Details how to build and program the WS2812 clock with 2 rings with the use of a 3d printer, 2 ws2812 leds ring (60 led and 24 led) and an esp8266 (like Wemos D1)
+
+The 60-led ring will be used the display the minutes and seconds on the outer ring
 
 ![60-Led RIng](https://github.com/Roukie686868/WS2812-Double-Ring-Clock/blob/main/Pictures/WS2812%20Ring60%20small.png)
 
+The hours and half hours will be displayed on the inner ring
+
 ![24-Led RIng](https://github.com/Roukie686868/WS2812-Double-Ring-Clock/blob/main/Pictures/WS2812%20Ring24%20small.png)
 
+The end result should look something like this.
 
+![Working clock](https://github.com/Roukie686868/WS2812-Double-Ring-Clock/blob/main/Pictures/60Led%20Clock%20(Custom).jpg)
+
+The outer ring shows the minutes with a RED dot and the seconds with a GREEN dot, when the overlap, the color is purple for that one second. The inner ring shows the hours with a blue dot.
+The rectangular box in the middle holds a WEMOS D1 mini and a photo resistor to tune the led brightness depending the brightness in the room. (tune this your self with ```lightm = map(light, 200, 1024, 10 ,250);``` )
+
+The 3D print is in 2 colors. The numbers are just a 3 layers higher than the rings so stop the print after the rings are done and continue with a different color for the last 3 layers to make the number stand out from the rest.
 ```
 #include <Arduino.h>
 #include "credentials.h"
