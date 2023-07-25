@@ -18,7 +18,8 @@ The rectangular box in the middle holds a WEMOS D1 mini and a photo resistor to 
 By connecting to your Wifi the and pulling the internet time correct by ```timeClient.setTimeOffset(+3600+3600);``` for your time zone and daylight saving the time is shown.
 
 The 3D print is in 2 colors. The numbers are just a 3 layers higher than the rings so stop the print after the rings are done and continue with a different color for the last 3 layers to make the number stand out from the rest.
-```
+
+``` javascript class:"lineNo"
 #include <Arduino.h>
 #include "credentials.h"
 
