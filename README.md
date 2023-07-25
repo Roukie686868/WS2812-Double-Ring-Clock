@@ -1,8 +1,10 @@
 # WS2812-Double-Ring-Clock
 Details how to build and program the WS2812 clock with 2 rings
 with the use of a 3d pringer, ws2812 leds and an esp8266 (like Wemos D1)
-![60-Led RIng](https://github.com/Roukie686868/WS2812-Double-Ring-Clock/blob/main/Pictures/WS2812%20Ring60.png)
-![24-Led RIng](https://github.com/Roukie686868/WS2812-Double-Ring-Clock/blob/main/Pictures/WS2812%20Ring24.png)
+
+![60-Led RIng](https://github.com/Roukie686868/WS2812-Double-Ring-Clock/blob/main/Pictures/WS2812%20Ring60%20small.png)
+
+![24-Led RIng](https://github.com/Roukie686868/WS2812-Double-Ring-Clock/blob/main/Pictures/WS2812%20Ring24%20small.png)
 
 
 ```
