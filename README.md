@@ -14,12 +14,13 @@ The end result should look something like this.
 ![Working clock](https://github.com/Roukie686868/WS2812-Double-Ring-Clock/blob/main/Pictures/60Led%20Clock%20(Custom).jpg)
 
 The outer ring shows the minutes with a RED dot and the seconds with a GREEN dot, when the overlap, the color is purple for that one second. The inner ring shows the hours with a blue dot.
-The rectangular box in the middle holds a WEMOS D1 mini and a photo resistor to tune the led brightness depending the brightness in the room. (tune this your self with ```lightm = map(light, 200, 1024, 10 ,250);``` )
-By connecting to your Wifi the and pulling the internet time correct by ```timeClient.setTimeOffset(+3600+3600);``` for your time zone and daylight saving the time is shown.
+The rectangular box in the middle holds a WEMOS D1 mini and a photo resistor to tune the led brightness depending the brightness in the room (tune this your self with ```lightm = map(light, 0, 1024, 10 ,250);``` ) and get the correct time from the internet.
 
-The 3D print is in 2 colors. The numbers are just a 3 layers higher than the rings so stop the print after the rings are done and continue with a different color for the last 3 layers to make the number stand out from the rest.
+The 3D print is in 2 colors. The hour numbers are just a 3 layers higher than the rings so stop the print after the rings are completed and continue with a different color for the last 3 layers to make the number standout from the rest.
 
-Big thanks to Werner Rotschopf for his sketch to get the local time including the Daylight Savings Time (DST). His great and simple sketch works best compared with the many complex solutions out on the internet. It looks like he got this from somebody called by noiasca 2020-09-22
+Big thanks to Werner Rotschopf for his sketch to get the local time including Daylight Savings Time (DST). His great and simple sketch works best compared with the many complex solutions out on the internet. It looks like he got this idea from somebody called by noiasca.
+[Werner's Webpage](https://werner.rothschopf.net/202011_arduino_esp8266_ntp_en.htm)
+[Page where all the different timezones can be extracted](https://github.com/nayarsystems/posix_tz_db/blob/master/zones.csv)
 
 ```javascript {.line-numbers}
 /* Necessary Includes */
@@ -45,7 +46,6 @@ Big thanks to Werner Rotschopf for his sketch to get the local time including th
 CRGB leds[NUM_LEDS];
 const int LDR = A0;
 int light  = 100;  // Initial brightness
-int lightm = 100;
 
 /* Globals */
 time_t now;                         // this is the epoch
@@ -77,8 +77,8 @@ void showTime() {               // only needed for testing
 
 void showclock() {
   light = analogRead(LDR);
-  lightm = map(light, 0, 1024, 10 ,250);
-  FastLED.setBrightness(lightm);
+  light = map(light, 0, 1024, 10 ,250);
+  FastLED.setBrightness(light);
 
     for (int pinNo = 0; pinNo <= NUM_LEDS - 1; pinNo++) {
     leds[pinNo] = CRGB( 0, 0, 0);
