@@ -21,12 +21,28 @@ The project consist out of the ring that holds the led and shows the hours and a
 Both STL files are in the [Design folder](https://github.com/Roukie686868/WS2812-Double-Ring-Clock/tree/main/DesignFiles)  
 The 3D print is in 2 colors. The hour numbers are just a 3 layers higher than the rings so stop the print after the rings are completed and continue with a different color for the last 3 layers to make the number standout from the rest.
 
-## Programming
-Big thanks to Werner Rotschopf for his sketch to get the local time including Daylight Savings Time (DST). His great and simple sketch works best compared with the many complex solutions out on the internet. It looks like he got this idea from somebody called by noiasca.  
-[Werner's Webpage](https://werner.rothschopf.net/202011_arduino_esp8266_ntp_en.htm)  
-[Page where all the different timezones can be extracted](https://github.com/nayarsystems/posix_tz_db/blob/master/zones.csv)  
-I added the control of the Neo-Pixel leds to make the clock work.
+## Electric Diagram
+As an example the diagram only shows one Neo-Pixel on the right.
+![How is it all connected](https://github.com/Roukie686868/WS2812-Double-Ring-Clock/blob/main/Pictures/Breadboard_design%20(Custom).png)  
 
+## Programming
+Big thanks to Werner Rotschopf for his sketch explaining how to get the local time including Daylight Savings Time (DST). His great and simple sketch works best compared with the many complex solutions out on the internet. [Werner's Webpage](https://werner.rothschopf.net/202011_arduino_esp8266_ntp_en.htm)  
+When you want to adjust ot another timezone than the Central European one visit the next link 
+[Different Timezones](https://github.com/nayarsystems/posix_tz_db/blob/master/zones.csv)  
+Add the new line to your sketch and remark out the Amsterdam line.
+```
+// Set the timezone details found on https://github.com/nayarsystems/posix_tz_db/blob/master/zones.csv
+#define MY_TZ "CET-1CEST,M3.5.0,M10.5.0/3"  // Amsterdam  // Get your from the github page
+//#define MY_TZ "WET0WEST,M3.5.0/1,M10.5.0"   // Lisbon
+```
+
+As the Neo-Pixels can be very bright an photo resistor was added to. You may have to play a bit with the map setting to get them right for your day and night situation
+```
+  light = analogRead(LDR);
+  light = map(light, 0, 1024, 10 ,250);
+```
+
+Below the final programming
 ```javascript {.line-numbers}
 /* Necessary Includes */
 #include <ESP8266WiFi.h>            // we need wifi to get internet access
@@ -39,8 +55,9 @@ I added the control of the Neo-Pixel leds to make the clock work.
 #define STAPSK  myPASSWORD          // set your wifi password with "xxxxxxx" or store them in the credintials.h file
 #endif
 
-/* Configuration of NTP . Details found on https://github.com/nayarsystems/posix_tz_db/blob/master/zones.csv */
+// Configuration of NTP .
 #define MY_NTP_SERVER "at.pool.ntp.org"           
+// Set the timezone details found on https://github.com/nayarsystems/posix_tz_db/blob/master/zones.csv
 #define MY_TZ "CET-1CEST,M3.5.0,M10.5.0/3"  // Amsterdam  // Get your from the github page
 //#define MY_TZ "WET0WEST,M3.5.0/1,M10.5.0"   // Lisbon
 
