@@ -19,7 +19,7 @@ By connecting to your Wifi the and pulling the internet time correct by ```timeC
 
 The 3D print is in 2 colors. The numbers are just a 3 layers higher than the rings so stop the print after the rings are done and continue with a different color for the last 3 layers to make the number stand out from the rest.
 
-Big thanks to Werner Rotschopf for his sketch to get the local time including the Daylight Savings Time (DST). His great and simple sketch works best compared with the many complex solutions out on the internet.
+Big thanks to Werner Rotschopf for his sketch to get the local time including the Daylight Savings Time (DST). His great and simple sketch works best compared with the many complex solutions out on the internet. It looks like he got this from somebody called by noiasca 2020-09-22
 
 ```javascript {.line-numbers}
 /* Necessary Includes */
