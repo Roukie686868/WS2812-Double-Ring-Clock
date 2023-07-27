@@ -1,19 +1,21 @@
 # WS2812-Double-Ring-Clock
 Details how to build and program the WS2812 clock with 2 rings with the use of a 3d printer, 2 ws2812 leds ring (60 led and 24 led) and an esp8266 (like Wemos D1)
 
-The 60-led ring will be used the display the minutes and seconds on the outer ring
+## End result
+The end result should look something like this.  
+![Working clock](https://github.com/Roukie686868/WS2812-Double-Ring-Clock/blob/main/Pictures/60Led%20Clock%20(Custom).jpg)  
+The outer ring shows the minutes with a RED dot and the seconds with a GREEN dot, when the minute and secind overlap, the color is purple for that one second. The inner ring shows the hours with a blue dot as there are 24 dots in the inner ring it kind of shows half hours.
 
-![60-Led RIng](https://github.com/Roukie686868/WS2812-Double-Ring-Clock/blob/main/Pictures/WS2812%20Ring60%20small.png)
+## Parts
+The 60-led ring will be used the display the minutes and seconds on the outer ring. Typically these are WS2812B Neo-Pixel placed in a ring  
+![60-Led RIng](https://github.com/Roukie686868/WS2812-Double-Ring-Clock/blob/main/Pictures/WS2812%20Ring60%20small.png)  
+The hours and half hours will be displayed on the 24-led inner ring  
+![24-Led RIng](https://github.com/Roukie686868/WS2812-Double-Ring-Clock/blob/main/Pictures/WS2812%20Ring24%20small.png)  
+LDR (Photo resitor 10M) and a normal resistor (10k) to pull it to ground and create a voltage divider. (More explanation on that on this page from [Hackster.io](https://www.hackster.io/najad/ldr-with-arduino-51d709)  
+![LDR and resistor](https://github.com/Roukie686868/WS2812-Double-Ring-Clock/blob/main/Pictures/LDR_Resitor.png)  
+WEMOS D1 Mini (but any other ESP8255 or ESP32 will do)
+![Wemos D1 Mini](https://github.com/Roukie686868/WS2812-Double-Ring-Clock/blob/main/Pictures/WemosD1MiniFrontandBack%20(Custom).png)  
 
-The hours and half hours will be displayed on the inner ring
-
-![24-Led RIng](https://github.com/Roukie686868/WS2812-Double-Ring-Clock/blob/main/Pictures/WS2812%20Ring24%20small.png)
-
-The end result should look something like this.
-
-![Working clock](https://github.com/Roukie686868/WS2812-Double-Ring-Clock/blob/main/Pictures/60Led%20Clock%20(Custom).jpg)
-
-The outer ring shows the minutes with a RED dot and the seconds with a GREEN dot, when the overlap, the color is purple for that one second. The inner ring shows the hours with a blue dot.
 The rectangular box in the middle holds a WEMOS D1 mini and a photo resistor to tune the led brightness depending the brightness in the room (tune this your self with ```lightm = map(light, 0, 1024, 10 ,250);``` ) and get the correct time from the internet.
 
 The 3D print is in 2 colors. The hour numbers are just a 3 layers higher than the rings so stop the print after the rings are completed and continue with a different color for the last 3 layers to make the number standout from the rest.
