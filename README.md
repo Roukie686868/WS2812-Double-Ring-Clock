@@ -1,5 +1,5 @@
 # WS2812-Double-Ring-Clock
-Details how to build and program the WS2812 clock with 2 rings with the use of a 3d printer, 2 ws2812 leds ring (60 led and 24 led) and an esp8266 (like Wemos D1)
+Details how to build and program the WS2812 clock with 2 rings with the use of a 3d printer, 2 ws2812 LEDs ring (60 led and 24 led) and an esp8266 (like Wemos D1)
 
 ## End result
 The end result should look something like this.  
@@ -7,9 +7,9 @@ The end result should look something like this.
 The outer ring shows the minutes with a RED dot and the seconds with a GREEN dot, when the minute and second overlap, the color is purple for that one second. The inner ring shows the hours with a blue dot. As there are 24 dots in the inner ring is showing half hours as well.
 
 ## Parts
-The 60-led ring will be used the display the minutes and seconds on the outer ring. Typically these are WS2812B Neo-Pixel placed in a ring  
+The 60-led ring will be used the display the minutes and seconds on the outer ring. Typically, these are WS2812B Neo-Pixel placed in a ring.  
 ![60-Led RIng](https://github.com/Roukie686868/WS2812-Double-Ring-Clock/blob/main/Pictures/WS2812%20Ring60%20small.png)  
-The hours and half hours will be displayed on the 24-led inner ring  
+The hours and half hours will be displayed on the 24-led inner ring.  
 ![24-Led RIng](https://github.com/Roukie686868/WS2812-Double-Ring-Clock/blob/main/Pictures/WS2812%20Ring24%20small.png)  
 LDR (Photo resistor 10M) and a normal resistor (10k) to pull it to ground and create a voltage divider. (More explanation on that on this page from [Hackster.io](https://www.hackster.io/najad/ldr-with-arduino-51d709)  
 ![LDR and resistor](https://github.com/Roukie686868/WS2812-Double-Ring-Clock/blob/main/Pictures/LDR_Resitor.png)  
@@ -22,21 +22,21 @@ Both STL files are in the [Design folder](https://github.com/Roukie686868/WS2812
 The 3D print is in 2 colors. The hour numbers are just a 3 layers higher than the rings so stop the print after the rings are completed and continue with a different color for the last 3 layers to make the number standout from the rest.
 
 ## Electric Diagram
-As an example the diagram only shows one Neo-Pixel on the right.
+As an example, the diagram only shows one Neo-Pixel on the right.
 ![How is it all connected](https://github.com/Roukie686868/WS2812-Double-Ring-Clock/blob/main/Pictures/Breadboard_design%20(Custom).png)  
 
 ## Programming
-Big thanks to Werner Rotschopf for his sketch explaining how to get the local time including Daylight Savings Time (DST). His great and simple sketch works best compared with the many complex solutions out on the internet. [Werner's Webpage](https://werner.rothschopf.net/202011_arduino_esp8266_ntp_en.htm)  
-When you want to adjust ot another timezone than the Central European one visit the next link 
-[Different Timezones](https://github.com/nayarsystems/posix_tz_db/blob/master/zones.csv)  
+Big thanks to Werner Rothschopf for his sketch explaining how to get the local time including Daylight Savings Time (DST). His great and simple sketch works best compared with the many complex solutions out on the internet. [Werner's Webpage](https://werner.rothschopf.net/202011_arduino_esp8266_ntp_en.htm)  
+When you want to adjust to another time zone than the Central European one, visit the next link 
+[Different Time Zones](https://github.com/nayarsystems/posix_tz_db/blob/master/zones.csv)  
 Add the new line to your sketch and remark out the Amsterdam line.
 ```
-// Set the timezone details found on https://github.com/nayarsystems/posix_tz_db/blob/master/zones.csv
+// Set the time zone details found on https://github.com/nayarsystems/posix_tz_db/blob/master/zones.csv
 #define MY_TZ "CET-1CEST,M3.5.0,M10.5.0/3"  // Amsterdam  // Get your from the github page
 //#define MY_TZ "WET0WEST,M3.5.0/1,M10.5.0"   // Lisbon
 ```
 
-As the Neo-Pixels can be very bright an photo resistor was added to. You may have to play a bit with the map setting to get them right for your day and night situation
+As the Neo-Pixels can be very bright a photo resistor was added to. You may have to play a bit with the map setting to get them right for your day and night situation.
 ```
   light = analogRead(LDR);
   light = map(light, 0, 1024, 10 ,250);
@@ -57,7 +57,7 @@ Below the final programming
 
 // Configuration of NTP .
 #define MY_NTP_SERVER "at.pool.ntp.org"           
-// Set the timezone details found on https://github.com/nayarsystems/posix_tz_db/blob/master/zones.csv
+// Set the time zone details found on https://github.com/nayarsystems/posix_tz_db/blob/master/zones.csv
 #define MY_TZ "CET-1CEST,M3.5.0,M10.5.0/3"  // Amsterdam  // Get your from the github page
 //#define MY_TZ "WET0WEST,M3.5.0/1,M10.5.0"   // Lisbon
 
