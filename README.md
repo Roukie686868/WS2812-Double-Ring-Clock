@@ -4,25 +4,28 @@ Details how to build and program the WS2812 clock with 2 rings with the use of a
 ## End result
 The end result should look something like this.  
 ![Working clock](https://github.com/Roukie686868/WS2812-Double-Ring-Clock/blob/main/Pictures/60Led%20Clock%20(Custom).jpg)  
-The outer ring shows the minutes with a RED dot and the seconds with a GREEN dot, when the minute and secind overlap, the color is purple for that one second. The inner ring shows the hours with a blue dot as there are 24 dots in the inner ring it kind of shows half hours.
+The outer ring shows the minutes with a RED dot and the seconds with a GREEN dot, when the minute and second overlap, the color is purple for that one second. The inner ring shows the hours with a blue dot as there are 24 dots in the inner ring it kind of shows half hours.
 
 ## Parts
 The 60-led ring will be used the display the minutes and seconds on the outer ring. Typically these are WS2812B Neo-Pixel placed in a ring  
 ![60-Led RIng](https://github.com/Roukie686868/WS2812-Double-Ring-Clock/blob/main/Pictures/WS2812%20Ring60%20small.png)  
 The hours and half hours will be displayed on the 24-led inner ring  
 ![24-Led RIng](https://github.com/Roukie686868/WS2812-Double-Ring-Clock/blob/main/Pictures/WS2812%20Ring24%20small.png)  
-LDR (Photo resitor 10M) and a normal resistor (10k) to pull it to ground and create a voltage divider. (More explanation on that on this page from [Hackster.io](https://www.hackster.io/najad/ldr-with-arduino-51d709)  
+LDR (Photo resistor 10M) and a normal resistor (10k) to pull it to ground and create a voltage divider. (More explanation on that on this page from [Hackster.io](https://www.hackster.io/najad/ldr-with-arduino-51d709)  
 ![LDR and resistor](https://github.com/Roukie686868/WS2812-Double-Ring-Clock/blob/main/Pictures/LDR_Resitor.png)  
 WEMOS D1 Mini (but any other ESP8255 or ESP32 will do)
 ![Wemos D1 Mini](https://github.com/Roukie686868/WS2812-Double-Ring-Clock/blob/main/Pictures/WemosD1MiniFrontandBack%20(Custom).png)  
 
-The rectangular box in the middle holds a WEMOS D1 mini and a photo resistor to tune the led brightness depending the brightness in the room (tune this your self with ```lightm = map(light, 0, 1024, 10 ,250);``` ) and get the correct time from the internet.
-
+## 3D print
+The project consist out of the ring that holds the led and shows the hours and a little rectangular box behind it to hold both the Wemos D1 mini and the photo resistor to tune the led brightness depending the brightness in the room.
+Both STL files are in the [Design folder](https://github.com/Roukie686868/WS2812-Double-Ring-Clock/tree/main/DesignFiles)  
 The 3D print is in 2 colors. The hour numbers are just a 3 layers higher than the rings so stop the print after the rings are completed and continue with a different color for the last 3 layers to make the number standout from the rest.
 
+## Programming
 Big thanks to Werner Rotschopf for his sketch to get the local time including Daylight Savings Time (DST). His great and simple sketch works best compared with the many complex solutions out on the internet. It looks like he got this idea from somebody called by noiasca.  
 [Werner's Webpage](https://werner.rothschopf.net/202011_arduino_esp8266_ntp_en.htm)  
 [Page where all the different timezones can be extracted](https://github.com/nayarsystems/posix_tz_db/blob/master/zones.csv)  
+I added the control of the Neo-Pixel leds to make the clock work.
 
 ```javascript {.line-numbers}
 /* Necessary Includes */
