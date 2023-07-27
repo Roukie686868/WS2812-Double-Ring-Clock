@@ -18,9 +18,9 @@ The rectangular box in the middle holds a WEMOS D1 mini and a photo resistor to 
 
 The 3D print is in 2 colors. The hour numbers are just a 3 layers higher than the rings so stop the print after the rings are completed and continue with a different color for the last 3 layers to make the number standout from the rest.
 
-Big thanks to Werner Rotschopf for his sketch to get the local time including Daylight Savings Time (DST). His great and simple sketch works best compared with the many complex solutions out on the internet. It looks like he got this idea from somebody called by noiasca.
-[Werner's Webpage](https://werner.rothschopf.net/202011_arduino_esp8266_ntp_en.htm)
-[Page where all the different timezones can be extracted](https://github.com/nayarsystems/posix_tz_db/blob/master/zones.csv)
+Big thanks to Werner Rotschopf for his sketch to get the local time including Daylight Savings Time (DST). His great and simple sketch works best compared with the many complex solutions out on the internet. It looks like he got this idea from somebody called by noiasca.  
+[Werner's Webpage](https://werner.rothschopf.net/202011_arduino_esp8266_ntp_en.htm)  
+[Page where all the different timezones can be extracted](https://github.com/nayarsystems/posix_tz_db/blob/master/zones.csv)  
 
 ```javascript {.line-numbers}
 /* Necessary Includes */
