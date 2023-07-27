@@ -4,7 +4,7 @@ Details how to build and program the WS2812 clock with 2 rings with the use of a
 ## End result
 The end result should look something like this.  
 ![Working clock](https://github.com/Roukie686868/WS2812-Double-Ring-Clock/blob/main/Pictures/60Led%20Clock%20(Custom).jpg)  
-The outer ring shows the minutes with a RED dot and the seconds with a GREEN dot, when the minute and second overlap, the color is purple for that one second. The inner ring shows the hours with a blue dot as there are 24 dots in the inner ring it kind of shows half hours.
+The outer ring shows the minutes with a RED dot and the seconds with a GREEN dot, when the minute and second overlap, the color is purple for that one second. The inner ring shows the hours with a blue dot. As there are 24 dots in the inner ring is showing half hours as well.
 
 ## Parts
 The 60-led ring will be used the display the minutes and seconds on the outer ring. Typically these are WS2812B Neo-Pixel placed in a ring  
